@@ -24,6 +24,16 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   /*
+  ** Create environment variables 
+  */
+  env: {
+    productType: {
+      MEAT: 'meat',
+      SEAFOOD: 'sea_food',
+      VEGETABLE: 'vegetable'
+    }
+  },
+  /*
   ** Build configuration
   */
   build: {
@@ -35,14 +45,14 @@ module.exports = {
     ** Run ESLint on save
     */
     extend (config, ctx) {
-      /* if (ctx.dev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-      } */
+      }
     }
   }
 }
